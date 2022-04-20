@@ -20,7 +20,7 @@ export default function App() {
     setAddTodoVisible(true)
   }
 
-  function toggleModalVisible (){
+  function toggleAddTodoModal (){
     setAddTodoVisible(false)
   }
 
@@ -29,10 +29,9 @@ export default function App() {
       <Modal 
         animationType='slide' 
         visible={addTodoVisible}
-        // onRequestClose={() => toggleAddTodoVisible()}
+        onRequestClose={() => toggleAddTodoVisible()}
       >
-        <AddListModal closeModal= {() =>
-        toggleModalVisible()} />
+        <AddListModal closeModal={ toggleAddTodoModal } />
       </Modal>
       <View style={{ flexDirection: 'row'}}>
         <View style={styles.divider} />

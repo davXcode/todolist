@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from '
 import { AntDesign } from '@expo/vector-icons';
 import colors from '../Color';
 
-export default function AddListModal(closeModal) {
+export default function AddListModal({closeModal}) {
     return (
         <KeyboardAvoidingView style={styles.container} behavior='padding'>
             <TouchableOpacity style={{position: 'absolute', top: 64, right: 32}} onPress={closeModal} >

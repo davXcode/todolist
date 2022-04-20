@@ -1,8 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Modal } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+  Modal,
+} from 'react-native';
 import React, { useState } from 'react';
 import colors from './Color';
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
 import tempData from './tempData';
 import TodoList from './components/TodoList';
 import AddListModal from './components/addListModal';
@@ -12,55 +19,59 @@ export default function App() {
   //   addTodoVisible: false
   // };
 
-  // function toggleAddTodoModal() { 
+  // function toggleAddTodoModal() {
   //   this.setState({addTodoVisible: !this.state.addTodoVisible})
   // }
-  const [addTodoVisible, setAddTodoVisible] = useState(false)
-  function toggleAddTodoVisible (){
-    setAddTodoVisible(true)
+  const [addTodoVisible, setAddTodoVisible] = useState(false);
+  function toggleAddTodoVisible() {
+    setAddTodoVisible(true);
   }
 
-  function toggleAddTodoModal (){
-    setAddTodoVisible(false)
+  function toggleAddTodoModal() {
+    setAddTodoVisible(false);
   }
 
   return (
     <View style={styles.container}>
-      <Modal 
-        animationType='slide' 
+      <Modal
+        animationType="slide"
         visible={addTodoVisible}
         onRequestClose={() => toggleAddTodoVisible()}
       >
-        <AddListModal closeModal={ toggleAddTodoModal } />
+        <AddListModal closeModal={toggleAddTodoModal} />
       </Modal>
-      <View style={{ flexDirection: 'row'}}>
+      <View style={{ flexDirection: 'row' }}>
         <View style={styles.divider} />
         <Text style={styles.title}>
-          Todo < Text style={{fontWeight: "300", color: colors.blue}}>Lists</Text>
+          Todo{' '}
+          <Text style={{ fontWeight: '300', color: colors.blue }}>Lists</Text>
         </Text>
         <View style={styles.divider} />
       </View>
 
       <View style={{ marginVertical: 48 }}>
-        <TouchableOpacity style={styles.addList} onPress={() => toggleAddTodoVisible()}>
-          <AntDesign name='plus' size={15} color={colors.blue} />
+        <TouchableOpacity
+          style={styles.addList}
+          onPress={() => toggleAddTodoVisible()}
+        >
+          <AntDesign name="plus" size={15} color={colors.blue} />
         </TouchableOpacity>
 
         <Text style={styles.add}>Add List</Text>
       </View>
 
-      <View style={{height: 275, paddingLeft: 32}}>
-        <FlatList 
-        data={tempData} 
-        keyExtractor={item => item.name}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <TodoList list={item} />}
+      <View style={{ height: 275, paddingLeft: 32 }}>
+        <FlatList
+          data={tempData}
+          keyExtractor={(item) => item.name}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => <TodoList list={item} />}
         />
-        </View>
       </View>
-    );
-  }
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -73,13 +84,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightBlue,
     height: 1,
     flex: 1,
-    alignSelf: "center"
+    alignSelf: 'center',
   },
   title: {
     fontSize: 38,
     fontWeight: '800',
     color: colors.black,
-    paddingHorizontal: 64
+    paddingHorizontal: 64,
   },
   addList: {
     borderWidth: 2,
@@ -87,12 +98,12 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 16,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   add: {
     color: colors.blue,
     fontWeight: '600',
     fontSize: 15,
-    marginTop: 8
-  }
+    marginTop: 8,
+  },
 });

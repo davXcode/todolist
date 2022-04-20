@@ -23,11 +23,11 @@ export default tempData = [
     },
     {
         name: 'Trip',
-        color: '#24A6D9',
+        color: 'red',
         todos: [
             {
                 title: 'Luggage',
-                completed: false
+                completed: true
             },
             {
                 title: 'Passport',
@@ -45,7 +45,7 @@ export default tempData = [
     },
     {
         name: 'Birthday',
-        color: '#24A6D9',
+        color: 'green',
         todos: [
             {
                 title: 'Balloons',
@@ -67,7 +67,7 @@ export default tempData = [
     },
     {
         name: 'Daily',
-        color: '#24A6D9',
+        color: 'pink',
         todos: [
             {
                 title: 'Take dog for a walk',

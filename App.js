@@ -15,13 +15,6 @@ import TodoList from './components/TodoList';
 import AddListModal from './components/addListModal';
 
 export default function App() {
-  // state = {
-  //   addTodoVisible: false
-  // };
-
-  // function toggleAddTodoModal() {
-  //   this.setState({addTodoVisible: !this.state.addTodoVisible})
-  // }
   const [addTodoVisible, setAddTodoVisible] = useState(false);
   function toggleAddTodoVisible() {
     setAddTodoVisible(true);
@@ -30,6 +23,10 @@ export default function App() {
   function toggleAddTodoModal() {
     setAddTodoVisible(false);
   }
+
+  const renderList = (list) => {
+    return <TodoList list={list} />;
+  };
 
   return (
     <View style={styles.container}>
@@ -66,7 +63,7 @@ export default function App() {
           keyExtractor={(item) => item.name}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => <TodoList list={item} />}
+          renderItem={({ item }) => renderList(item)}
         />
       </View>
     </View>
